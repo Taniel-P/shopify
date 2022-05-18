@@ -1,0 +1,48 @@
+.promptInput {
+  width: 300px;
+  height: 200px;
+}
+
+.title {
+  text-align: center;
+}
+
+.promptInput {
+  display: table;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.submitButton {
+  width: 300px;
+  display: table;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.responseHeader {
+  display: table;
+  margin: 0 auto;
+}
+
+.responses {
+  display: table;
+  margin: 0 auto;
+  width: 500px;
+}
+
+.responseContainer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  background-color: lightgray;
+}
+
+.responsePrompt {
+  padding-bottom: 5px;
+}
