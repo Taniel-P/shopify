@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 // const API_KEY =require('./process.env')
-const KEY = require('./config.js');
+// const KEY = require('./config.js');
 
 function App() {
 
@@ -34,7 +34,7 @@ function App() {
     if (inputText.length > 0) {
       axios.post('https://api.openai.com/v1/engines/text-curie-001/completions', data, {
         headers: {
-          Authorization: `Bearer ${KEY.API_KEY}`,
+          Authorization: `Bearer ${process.env.API_KEY}`,
         }
       })
       .then((response) => {
