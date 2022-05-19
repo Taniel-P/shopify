@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 // const API_KEY =require('./process.env')
+const KEY = require('./config.js');
 
 function App() {
 
   const [inputText, setInputText] = useState('');
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    const savedMessages = window.localStorage.getItem('item');
+    const initialValue = JSON.parse(savedMessages);
+    return initialValue || [];
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem('item', JSON.stringify(messages));
+  }, [messages]);
 
   const handleTextChange = (e) => {
     setInputText(e.target.value);
@@ -25,7 +34,7 @@ function App() {
     if (inputText.length > 0) {
       axios.post('https://api.openai.com/v1/engines/text-curie-001/completions', data, {
         headers: {
-          Authorization: 'Bearer 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',
+          Authorization: `Bearer ${KEY.API_KEY}`,
         }
       })
       .then((response) => {
@@ -43,6 +52,11 @@ function App() {
     }
   }
 
+  const handleClear = () => {
+    window.localStorage.removeItem('item');
+    setMessages([]);
+  }
+
   return (
     <div className="App">
       <h1 className="title">Talk to AI!</h1>
@@ -51,6 +65,7 @@ function App() {
       </form>
       <button className="submitButton" onClick={onSubmit}>Submit</button>
       <h1 className="responseHeader">Responses</h1>
+      <button className="clearResponses" onClick={handleClear}>Clear</button>
       <div className="responses">
         {messages.map((message, i) =>
         <div className="responseContainer" key={i}>
