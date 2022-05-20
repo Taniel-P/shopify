@@ -19,7 +19,7 @@ function App() {
 
   const handleTextChange = (e) => {
     setInputText(e.target.value);
-  }
+  };
 
   const data = {
     prompt: inputText,
