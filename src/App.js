@@ -28,7 +28,7 @@ function App() {
     top_p: 1.0,
     frequency_penalty: 0.0,
     presence_penalty: 0.0,
-  }
+  };
 
   const onSubmit = () => {
     if (inputText.length > 0) {
