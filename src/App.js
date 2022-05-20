@@ -35,6 +35,7 @@ function App() {
       axios.post('https://api.openai.com/v1/engines/text-curie-001/completions', data, {
         headers: {
           Authorization: `Bearer ${process.env.API_KEY}`,
+          // Authorization: `Bearer ${KEY.API_KEY}`,
         }
       })
       .then((response) => {
