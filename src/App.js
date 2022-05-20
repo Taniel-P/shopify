@@ -51,7 +51,7 @@ function App() {
         console.log('ERROR', err);
       })
     }
-  }
+  };
 
   const handleClear = () => {
     window.localStorage.removeItem('item');
